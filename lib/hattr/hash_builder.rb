@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Hattr
   module HashBuilder
     module_function
@@ -7,7 +8,6 @@ module Hattr
 
     def generate(spec, raw)
       opts = spec.delete(ClassMethods::OPTIONS_STORAGE_KEY)
-      attributes = spec.keys
 
       raw = raw.symbolize_keys unless opts[:string_keys]
       raw.each { |k, v| raw[k] = typecast(v, spec.fetch(k.to_sym, ClassMethods::ATTR_DEFAULTS)[:type]) }
