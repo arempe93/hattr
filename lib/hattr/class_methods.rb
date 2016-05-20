@@ -44,7 +44,7 @@ module Hattr
     end
 
     def store_attribute(field, attribute, opts)
-      store_group(field, GROUP_DEFAULTS) unless hattr_groups[field]
+      store_group(field, GROUP_DEFAULTS.dup) unless hattr_groups[field]
       hattr_groups[field][attribute.to_sym] = opts
     end
 

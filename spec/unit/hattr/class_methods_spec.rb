@@ -83,7 +83,9 @@ describe Hattr::ClassMethods do
       after { subject.send(:store_attribute, field, attribute, options) }
 
       it 'should store group with default options' do
-        expect(subject).to receive(:store_group).with(field, described_class::GROUP_DEFAULTS)
+        expect(subject).to receive(:store_group).with(field, described_class::GROUP_DEFAULTS) do |field, opts|
+          subject.hattr_groups[field] = { described_class::OPTIONS_STORAGE_KEY => opts.dup }
+        end
       end
     end
 
