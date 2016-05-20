@@ -64,11 +64,11 @@ module Hattr
     end
 
     def string_to_hash(str)
-      Hash[str.tr('{}" ', '').split(',').map { |pair| pair.split('=>') }]
+      Hash[str.tr('{}:" ', '').split(',').map { |pair| pair.split('=>') }]
     end
 
     def string_to_array(str)
-      str.tr('[]" ', '').split(',')
+      str.tr('[]:" ', '').split(',')
     end
   end
 end
