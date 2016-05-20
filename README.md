@@ -3,7 +3,7 @@ Hattr
 
 [![Build Status](https://travis-ci.org/arempe93/hattr.svg?branch=master)](https://travis-ci.org/arempe93/hattr)
 [![Gem Version](https://badge.fury.io/rb/hattr.svg)](https://rubygems.org/gems/hattr)
-[![Coverage Status](https://coveralls.io/repos/arempe93/hattr/badge.svg?branch=master&service=github)](https://coveralls.io/github/arempe93/hattr?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/arempe93/hattr/badge.svg?branch=master)](https://coveralls.io/github/arempe93/hattr?branch=master)
 
 A simple library for interacting with the PSQL `hstore` extension in `ActiveRecord`. Hattr supports coercion of `hstore` attributes based on a simple dsl and will eventually support more advanced features such as Rails validations and more configurable options.
 
