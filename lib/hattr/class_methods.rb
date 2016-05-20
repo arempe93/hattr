@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 module Hattr
   module ClassMethods
-    GROUP_OPTIONS = [:string_keys, :declared_only]
+    GROUP_OPTIONS = [:string_keys]
     ATTR_OPTIONS  = [:type]
 
-    GROUP_DEFAULTS = { string_keys: false, declared_only: false }
+    GROUP_DEFAULTS = { string_keys: false }
     ATTR_DEFAULTS  = { type: String }
 
     OPTIONS_STORAGE_KEY = :_hattr_options

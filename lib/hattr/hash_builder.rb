@@ -10,23 +10,7 @@ module Hattr
       attributes = spec.keys
 
       raw = raw.symbolize_keys unless opts[:string_keys]
-      raw = filter_keys(raw, attributes, opts[:declared_only])
-
       raw.each { |k, v| raw[k] = typecast(v, spec.fetch(k.to_sym, ClassMethods::ATTR_DEFAULTS)[:type]) }
-    end
-
-    def filter_keys(raw, keys, options)
-      return raw unless options
-
-      if options.is_a?(Hash) && options[:raise_error]
-        raw.keys.each do |k|
-          unless keys.include?(k)
-            raise "invalid key `#{k}`. Allowed keys include :#{keys.join(', :')}"
-          end
-        end
-      else
-        raw.keep_if { |k, _v| attributes.include?(k) }
-      end
     end
 
     def typecast(value, type)
