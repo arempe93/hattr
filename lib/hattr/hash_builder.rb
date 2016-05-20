@@ -12,7 +12,7 @@ module Hattr
       raw = raw.symbolize_keys unless opts[:string_keys]
       raw = filter_keys(raw, attributes, opts[:declared_only])
 
-      raw.each { |k, v| raw[k] = typecast(v, spec[k.to_sym][:type]) }
+      raw.each { |k, v| raw[k] = typecast(v, spec.fetch(k.to_sym, ClassMethods::ATTR_DEFAULTS)[:type]) }
     end
 
     def filter_keys(raw, keys, options)
