@@ -47,7 +47,7 @@ module Hattr
     def create_reader_method(field)
       class_eval do
         define_method field do
-          build_group_hash(hattr_groups[field].dup, read_attribute(:field))
+          build_group_hash(self.class.hattr_groups[field].dup, read_attribute(:field))
         end
       end
     end
