@@ -24,6 +24,10 @@ module Hattr
       store_attribute(field, attribute, ATTR_DEFAULTS.merge(opts))
     end
 
+    def build_group_hash(spec, value)
+      HashBuilder.generate(spec, value)
+    end
+
     private
 
     def validate_options(opts, valid_keys)
@@ -50,10 +54,6 @@ module Hattr
           self.class.build_group_hash(self.class.hattr_groups[field].dup, read_attribute(:field))
         end
       end
-    end
-
-    def build_group_hash(spec, value)
-      HashBuilder.generate(spec, value)
     end
   end
 end
